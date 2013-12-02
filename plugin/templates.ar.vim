@@ -110,6 +110,20 @@ set nolazyredraw
 "=	if strlen( templatefile ) == 0 | return | endif
 "=	silent execute 1 'read' templatefile
 "=	1 delete _
+"=  let n = search('@user@', 'W')
+"=	if n
+"=	    let user = $USER
+"=        let curline = getline(n)
+"=        let rp = substitute(curline, '@user@', user, 'g')
+"=        call setline('.', rp)
+"=  endif
+"=	let n = search('@date@', 'W')
+"=	if n
+"=	    let date = strftime("%c")
+"=        let curline = getline(n)
+"=        let rp = substitute(curline, '@date@', date, 'g')
+"=        call setline('.', rp)
+"=  endif 
 "=	if search( 'cursor:', 'W' )
 "=		let cursorline = strpart( getline( '.' ), col( '.' ) - 1 )
 "=		let y = matchstr( cursorline, '^cursor:\s*\zs\d\+\ze' )
@@ -153,4 +167,16 @@ set nolazyredraw
 "file: templates/sh
 "=#!/bin/bash
 "=
+"=# created by: @user@
+"=# created on: @date@
 "=# cursor: 2 del
+"file: templates/python
+"=#!/usr/bin/env python
+"=# -*-coding: utf8 -*-
+"='''
+"=# created by: @user@
+"=# created on: @date@
+"='''
+"= cursor: 8 del
+
+
